@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Código Secreto</title>
+  <style>
+    body {
+      background-image: url('fondo.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      color: black;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      text-align: center;
+      padding: 20px;
+    }
+
+    #inputClave {
+      padding: 10px;
+      font-size: 16px;
+      margin-top: 20px;
+    }
+
+    #botonAceptar {
+      margin-top: 10px;
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: red;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    #mensaje {
+      max-width: 600px;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <h1>Descubre e introduce el código / Discover and enter the code</h1>
+    <input type="text" id="inputClave" placeholder="Código / Code" />
+    <br />
+    <button id="botonAceptar" onclick="comprobarClave()">Aceptar / Submit</button>
+    <p id="mensaje"></p>
+  </div>
+
+  <script>
+    function comprobarClave() {
+      const clave = document.getElementById('inputClave').value.trim();
+      const mensaje = document.getElementById('mensaje');
+
+      if (clave === '57891') {
+        mensaje.textContent = '¡Enhorabuena! Has encontrado el código secreto. Dile al detective la siguiente contraseña: "Leota lo sabe todo". / Congratulations! You have found the secret code. Tell the detective the following password: "Leota knows everything".';
+      } else {
+        mensaje.textContent = 'No has logrado descifrar el código, sigue intentándolo. / You haven’t cracked the code, keep trying.';
+      }
+    }
+  </script>
+</body>
+</html>
