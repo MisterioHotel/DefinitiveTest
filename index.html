@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Código Secreto</title>
   <style>
     body {
@@ -9,58 +10,77 @@
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
-      color: black;
       font-family: Arial, sans-serif;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
+      color: black;
       text-align: center;
-      padding: 20px;
+      padding: 50px;
     }
 
-    #inputClave {
+    h1 {
+      font-size: 2em;
+    }
+
+    input[type="text"] {
       padding: 10px;
-      font-size: 16px;
+      font-size: 1em;
       margin-top: 20px;
+      width: 200px;
     }
 
-    #botonAceptar {
-      margin-top: 10px;
+    button {
       padding: 10px 20px;
-      font-size: 16px;
+      font-size: 1em;
       background-color: red;
       color: white;
       border: none;
+      margin-top: 10px;
       cursor: pointer;
     }
 
     #mensaje {
-      max-width: 600px;
+      margin-top: 30px;
+      font-size: 1.2em;
     }
   </style>
 </head>
 <body>
-  <div>
-    <h1>Descubre e introduce el código / Discover and enter the code</h1>
-    <input type="text" id="inputClave" placeholder="Código / Code" />
-    <br />
-    <button id="botonAceptar" onclick="comprobarClave()">Aceptar / Submit</button>
-    <p id="mensaje"></p>
-  </div>
+
+  <h1>Descubre e introduce el código / Discover and enter the code</h1>
+
+  <form id="codigoForm">
+    <input type="text" id="codigo" placeholder="Código / Code">
+    <br>
+    <button type="submit">Aceptar / Submit</button>
+  </form>
+
+  <div id="mensaje"></div>
+
+  <audio id="musicaFondo" loop>
+    <source src="misterio.mp3" type="audio/mpeg">
+    Tu navegador no soporta audio HTML5.
+  </audio>
 
   <script>
-    function comprobarClave() {
-      const clave = document.getElementById('inputClave').value.trim();
-      const mensaje = document.getElementById('mensaje');
+    document.getElementById("codigoForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+      var codigo = document.getElementById("codigo").value;
+      var mensaje = document.getElementById("mensaje");
+      var musica = document.getElementById("musicaFondo");
 
-      if (clave === '57891') {
-        mensaje.textContent = '¡Enhorabuena! Has encontrado el código secreto. Dile al detective la siguiente contraseña: "Leota lo sabe todo". / Congratulations! You have found the secret code. Tell the detective the following password: "Leota knows everything".';
+      // Inicia la música
+      musica.play();
+
+      if (codigo === "57891") {
+        mensaje.textContent = "¡Enhorabuena! Has encontrado el código secreto. Dile al detective la siguiente contraseña: \"Leota lo sabe todo\" / Congratulations! You've found the secret code. Tell the detective the following password: \"Leota knows everything\"";
       } else {
-        mensaje.textContent = 'No has logrado descifrar el código, sigue intentándolo. / You haven’t cracked the code, keep trying.';
+        mensaje.textContent = "No has logrado descifrar el código, sigue intentándolo. / You haven't cracked the code, keep trying.";
       }
+    });
+  </script>
+
+</body>
+</html>
+
     }
   </script>
 </body>
