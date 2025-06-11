@@ -55,7 +55,7 @@
 
   <div id="mensaje"></div>
 
-  <audio id="musicaFondo" loop>
+  <audio id="musicaFondo" autoplay loop>
     <source src="misterio.mp3" type="audio/mpeg">
     Tu navegador no soporta audio HTML5.
   </audio>
@@ -65,10 +65,6 @@
       event.preventDefault();
       var codigo = document.getElementById("codigo").value;
       var mensaje = document.getElementById("mensaje");
-      var musica = document.getElementById("musicaFondo");
-
-      // Inicia la música
-      musica.play();
 
       if (codigo === "57891") {
         mensaje.textContent = "¡Enhorabuena! Has encontrado el código secreto. Dile al detective la siguiente contraseña: \"Leota lo sabe todo\" / Congratulations! You've found the secret code. Tell the detective the following password: \"Leota knows everything\"";
@@ -78,10 +74,5 @@
     });
   </script>
 
-</body>
-</html>
-
-    }
-  </script>
 </body>
 </html>
